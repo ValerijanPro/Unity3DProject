@@ -384,10 +384,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4051a9623c97c464983d41550b7bce8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputfile: iris
-  columnX: 1
-  columnY: 2
-  columnZ: 4
+  inputfile: out
+  columnX: 0
+  columnY: 1
+  columnZ: 2
   xName: 
   yName: 
   zName: 
