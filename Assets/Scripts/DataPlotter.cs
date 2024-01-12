@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Globalization;
+using System.Threading;
 
 public class DataPlotter : MonoBehaviour
 {
@@ -34,6 +36,8 @@ public class DataPlotter : MonoBehaviour
     void Start()
     {
         Debug.Log("test");
+
+        Thread.CurrentThread.CurrentCulture = new CultureInfo("en-GB");
 
         // Set pointlist to results of function Reader with argument inputfile
         pointList = CSVReader.Read(inputfile);
@@ -74,6 +78,8 @@ public class DataPlotter : MonoBehaviour
             float x = (System.Convert.ToSingle(pointList[i][xName]) - xMin) / (xMax - xMin);
             float y = (System.Convert.ToSingle(pointList[i][yName]) - yMin) / (yMax - yMin);
             float z = (System.Convert.ToSingle(pointList[i][zName]) - zMin) / (zMax - zMin);
+
+            Debug.Log("P(" + x + ", " + y + ", " + z + ")");
 
             // Instantiate as gameobject variable so that it can be manipulated within loop
             GameObject dataPoint = Instantiate(
@@ -131,4 +137,5 @@ public class DataPlotter : MonoBehaviour
 
         return minValue;
     }
+
 }
